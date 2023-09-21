@@ -3,9 +3,6 @@
 // in the html.
 
 
-var currentHour = dayjs().format('H'); //  = 'H' to match div IDs. Set to 24 hr clock for ease of comparing
-console.log(currentHour);
-
 var currentDay = dayjs().format('dddd, MMMM D'); // how to add "th" to end of numbers? ex. "January 6th"
 $('#currentDay').text(currentDay);
 
@@ -25,6 +22,31 @@ $('#currentDay').text(currentDay);
 //   });
 // }
 
+function assignColors () {
+  var currentHour = dayjs().format('H'); //  = 'H' to match div IDs. Set to 24 hr clock for ease of comparing
+  console.log('Current Hour', currentHour);
+$('.time-block').each(function(){
+
+  var eachHour = $(this).attr('id'); // this always refers to the element that is calling it (time-block)
+console.log('Each hour', eachHour);
+
+if (currentHour > eachHour) {
+$(this).addClass('past'); 
+} else if (currentHour === eachHour) {
+  $(this).removeClass('past');
+  $(this).addClass('present');
+} else 
+{ console.log(eachHour);
+  console.log(eachHour);
+  $(this).removeClass('present');
+  $(this).removeClass('past');
+  $(this).addClass('future');
+}
+
+
+});
+}
+
 
 
 $(".saveBtn").click(function() {
@@ -40,9 +62,6 @@ localStorage.setItem('newItem', addedText)
 
 
 $(function () {
-
-
-
   // TODO: Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
   // local storage. HINT: What does `this` reference in the click listener
@@ -65,4 +84,4 @@ $(function () {
 
 
 // setInterval(assignColors, 60000); // Updates the colors every minute
-// assignColors();
+assignColors();
