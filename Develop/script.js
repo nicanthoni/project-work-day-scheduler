@@ -3,30 +3,46 @@
 // in the html.
 
 
-var currentTime = dayjs().format('[h]our-h'); // live time = 'hour-#'
-console.log(currentTime);
+var currentHour = dayjs().format('H'); //  = 'H' to match div IDs. Set to 24 hr clock for ease of comparing
+console.log(currentHour);
 
-var currentDay = dayjs().format('dddd, MMMM D'); // how to add "th" to end of numbers?
+var currentDay = dayjs().format('dddd, MMMM D'); // how to add "th" to end of numbers? ex. "January 6th"
 $('#currentDay').text(currentDay);
 
 
-function assignColors(){   // function for if current time matcheds the id of a div, update that divs class to red,etc
- $('.time-block').each(function () {
-  var blockHour = parseInt($(this).attr('id').split('-')[1]);
 
-  if (currentTime === $('div.#')) {   
-   $('div').removeClass("past" || "future").addClass("present")   
- }   else if (currentTime < 'div.#') {
-  $('div').removeClass("past" || "present").addClass("future")
- } else {
-  $('div').removeClass("future" || "present").addClass("past")
- }
-});                      
-}
+// function assignColors() {   // function for if current time matcheds the id of a div, update that divs class to red,etc
+//   $('.time-block').each(function () {
+//     var blockHour = parseInt($(this).attr('id').split('-')[1]);
+
+//     if (currentHour === $('div.#')) {
+//       $('div').removeClass("past" || "future").addClass("present")
+//     } else if (currentHour < 'div.#') {
+//       $('div').removeClass("past" || "present").addClass("future")
+//     } else {
+//       $('div').removeClass("future" || "present").addClass("past")
+//     }
+//   });
+// }
+
+
+
+$(".saveBtn").click(function() {
+var addedText = $("textarea").val();
+console.log ('Here is the new text:'+ addedText);
+localStorage.setItem('newItem', addedText)
+
+// How to make this data persist?
+
+});
+
 
 
 
 $(function () {
+
+
+
   // TODO: Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
   // local storage. HINT: What does `this` reference in the click listener
@@ -48,5 +64,5 @@ $(function () {
 });
 
 
-setInterval(assignColors, 60000); // Updates the colors every minute
-assignColors();
+// setInterval(assignColors, 60000); // Updates the colors every minute
+// assignColors();
