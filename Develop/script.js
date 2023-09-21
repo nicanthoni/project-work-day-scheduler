@@ -1,7 +1,7 @@
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
-var currentDay = dayjs().format('dddd, MMMM D');
+var currentDay = dayjs().format('dddd, MMMM D'); // how to add "th" to end of numbers?
 $('#currentDay').text(currentDay);
 // set interval function to get it updating?
 
