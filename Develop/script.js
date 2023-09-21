@@ -1,9 +1,29 @@
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
+
+
+var currentTime = dayjs().format('[h]our-h'); // live time = 'hour-#'
+console.log(currentTime);
+
 var currentDay = dayjs().format('dddd, MMMM D'); // how to add "th" to end of numbers?
 $('#currentDay').text(currentDay);
-// set interval function to get it updating?
+
+
+function assignColors(){   // function for if current time matcheds the id of a div, update that divs class to red,etc
+ $('.time-block').each(function () {
+  var blockHour = parseInt($(this).attr('id').split('-')[1]);
+
+  if (currentTime === $('div.#')) {   
+   $('div').removeClass("past" || "future").addClass("present")   
+ }   else if (currentTime < 'div.#') {
+  $('div').removeClass("past" || "present").addClass("future")
+ } else {
+  $('div').removeClass("future" || "present").addClass("past")
+ }
+});                      
+}
+
 
 
 $(function () {
@@ -26,3 +46,7 @@ $(function () {
   //
   // TODO: Add code to display the current date in the header of the page.
 });
+
+
+setInterval(assignColors, 60000); // Updates the colors every minute
+assignColors();
