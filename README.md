@@ -15,7 +15,7 @@ Below are screenshot examples of the application, and it's functionality:
 
 ## Tech/framework used
 
-Dayjs, Bootstrap, JQuery, HTML,  CSS, and Google Fonts
+Dayjs, Bootstrap, JQuery, HTML,  CSS, and Google Fonts.
 
 
 ## Deployed application link
