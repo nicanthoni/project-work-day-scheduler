@@ -23,11 +23,11 @@ $('#currentDay').text(currentDay);
 // }
 
 function assignColors () {
-  var currentHour = dayjs().format('H'); //  = 'H' to match div IDs. Set to 24 hr clock for ease of comparing
+  var currentHour = parseInt(dayjs().format('H')); //  = 'H' to match div IDs. Set to 24 hr clock for ease of comparing
   console.log('Current Hour', currentHour);
 $('.time-block').each(function(){
 
-  var eachHour = $(this).attr('id'); // this always refers to the element that is calling it (time-block)
+  var eachHour = parseInt($(this).attr('id')); // this always refers to the element that is calling it (time-block)
 console.log('Each hour', eachHour);
 
 if (currentHour > eachHour) {
@@ -43,10 +43,8 @@ $(this).addClass('past');
   $(this).addClass('future');
 }
 
-
 });
 }
-
 
 
 $(".saveBtn").click(function() {
@@ -57,7 +55,6 @@ localStorage.setItem('newItem', addedText)
 // How to make this data persist?
 
 });
-
 
 
 
