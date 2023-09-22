@@ -7,21 +7,6 @@ var currentDay = dayjs().format('dddd, MMMM D'); // how to add "th" to end of nu
 $('#currentDay').text(currentDay);
 
 
-
-// function assignColors() {   // function for if current time matcheds the id of a div, update that divs class to red,etc
-//   $('.time-block').each(function () {
-//     var blockHour = parseInt($(this).attr('id').split('-')[1]);
-
-//     if (currentHour === $('div.#')) {
-//       $('div').removeClass("past" || "future").addClass("present")
-//     } else if (currentHour < 'div.#') {
-//       $('div').removeClass("past" || "present").addClass("future")
-//     } else {
-//       $('div').removeClass("future" || "present").addClass("past")
-//     }
-//   });
-// }
-
 function assignColors () {
   var currentHour = parseInt(dayjs().format('H')); //  = 'H' to match div IDs. Set to 24 hr clock for ease of comparing
   console.log('Current Hour', currentHour);
@@ -80,5 +65,5 @@ $(function () {
 });
 
 
-// setInterval(assignColors, 60000); // Updates the colors every minute
+setInterval(assignColors, 60000); // Updates the colors every minute
 assignColors();
