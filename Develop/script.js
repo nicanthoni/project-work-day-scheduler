@@ -29,18 +29,23 @@ $(this).addClass('past');
 });
 }
 
+
 $(".saveBtn").click(function() {
 var addedText = $(this).siblings('.description').val();
 console.log ('Here is the new text:'+ addedText);
-var keyName = $(this).parent().attr('id')
+var keyName = $(this).parent().attr('id');
 console.log(keyName);
 localStorage.setItem(keyName, addedText)
+
+
 });
+
 
 $('.description').each(function (){
   var keyName = $(this).parent().attr('id')
   $(this).val(localStorage.getItem(keyName));
 }) 
+
 
 $(function () {
   // TODO: Add a listener for click events on the save button. This code should
@@ -62,6 +67,7 @@ $(function () {
   //
   // TODO: Add code to display the current date in the header of the page.
 });
+
 
 setInterval(assignColors, 60000); // Updates the colors every minute
 assignColors();
